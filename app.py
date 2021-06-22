@@ -40,6 +40,19 @@ def handle_message(event):
     msg = event.message.text
     r = "很抱歉,您說什麼？"
 
+    if '貼圖' in msg:
+        sticker_message = StickerSendMessage(
+            package_id='446',
+            sticker_id='1988'
+        )
+
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
+
+        return
+
+
     if msg in ['hi', 'Hi']:
         r = 'hi'
     elif msg == '你吃飯了嗎':
